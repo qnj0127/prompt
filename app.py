@@ -130,22 +130,19 @@ gen_btn = st.button("✨ 生成提示词 ✨")
 
 # ===================== 点击生成逻辑 =====================
 if gen_btn:
-    if not option or not content or not ratio or not style:
+    if not category or not site or not ratio or not style:
         st.warning("⚠️ 所有选项都要填写完整哦！")
-    prompt=f"""
-        生成一张{{object}}视觉素材。
-        生成一张{{object}}视觉素材。
+        st.stop()
+    prompt = f"""
+        生成一张{site}视觉素材。
         要求:
         中国河南洛阳真实文化。
         适合Scratch互动作品。
-        视觉风格:
-        {style}
-        图片比例:
-        {ratio}
+        视觉风格: {style}
+        图片比例: {ratio}
         高清。
         主体突出。
         背景干净。
         无文字。
     """
-
-st.code (prompt,language="markdown")
+    st.code(prompt, language="markdown")
